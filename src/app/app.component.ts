@@ -42,6 +42,7 @@ export class AppComponent {
   }
 
   calcul(): void {
+    let firstRound = true;
     if (this.number.length === 0) {
       this.calculAffiche = '0';
     }
@@ -50,25 +51,35 @@ export class AppComponent {
       this.chiffre = '';
     }
 
-    for (let i in this.number) {
+    for (let i = 0; i <= this.number.length; i++ ) {
       for (const j in this.operator) {
         const myNumber = parseInt(this.number[i]);
-        const myNumber2 = parseInt(this.number[i + 1]);
-        alert(i);
-        if ( this.operator[j] === '+') {
-          this.resultat = myNumber + myNumber2;
-        }
-        if ( this.operator[j] === 'x') {
-          this.resultat = myNumber * myNumber2;
-        }
-        if ( this.operator[j] === '/') {
-          this.resultat = myNumber / myNumber2;
+        if (firstRound) {
+          const myNumber2 = parseInt(this.number[i + 1]);
+          if ( this.operator[j] === '+') {
+            this.resultat = myNumber + myNumber2;
+          }
+          if ( this.operator[j] === 'x') {
+            this.resultat = myNumber * myNumber2;
+          }
+          if ( this.operator[j] === '/') {
+            this.resultat = myNumber / myNumber2;
+          }
+          firstRound = false;
+        } else {
+          if ( this.operator[j] === '+') {
+            this.resultat = this.resultat + myNumber;
+          }
+          if ( this.operator[j] === 'x') {
+            this.resultat = this.resultat * myNumber;
+          }
+          if ( this.operator[j] === '/') {
+            this.resultat = this.resultat / myNumber;
+          }
         }
         i = i + 2;
-        alert(i);
       }
     }
-    alert(this.resultat);
     this.calculAffiche = '' + this.resultat;
   }
 }
