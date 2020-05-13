@@ -1,0 +1,11 @@
+.title{
+  text-align: center;
+}
+.number_button{
+  text-align: center;
+  background-color: rgba(169,169,169,0.5);
+  height: 2rem;
+}
+.number_button:hover{
+  cursor: pointer;
+}
