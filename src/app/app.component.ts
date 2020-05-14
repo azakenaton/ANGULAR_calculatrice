@@ -9,15 +9,13 @@ import {stringify} from 'querystring';
 export class AppComponent {
   title = 'La Calculatrice';
 
-  operator: Array<string>;
-  number: Array<string>;
+  operator: Array<string> = [];
+  number: Array<string> = [];
   calculAffiche = '';
   chiffre = '';
   resultat: number;
 
   newOperator(key: string): void {
-    this.operator = [];
-    this.number = [];
 
     this.operator.push(key);
     this.affichageCalcul(key);
