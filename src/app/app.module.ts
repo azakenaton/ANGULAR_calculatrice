@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BoutonComponent } from './bouton/bouton.component';
 import { EcranComponent } from './ecran/ecran.component';
+import { HistoriqueCalculComponent } from './historique-calcul/historique-calcul.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BoutonComponent,
-    EcranComponent
+    EcranComponent,
+    HistoriqueCalculComponent
   ],
   imports: [
     BrowserModule

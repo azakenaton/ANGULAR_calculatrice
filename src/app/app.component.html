@@ -3,7 +3,7 @@
     <h1 class="title">{{title}}</h1>
   </div>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div>
         <div>
           <div><app-ecran [calculAffiche]="calculAffiche"></app-ecran></div>
@@ -31,11 +31,16 @@
             <tr>
               <td class="number_button" (click)="newNumber('0')"> <app-bouton [numero]="'0'"></app-bouton>0</td>
               <td class="number_button" (click)="calcul()"> <app-bouton [numero]="'='"></app-bouton>=</td>
-              <td colspan="2" class="number_button" (click)="clear()"> <app-bouton [numero]="'C'"></app-bouton>C</td>
+              <td class="number_button" (click)="clear()"> <app-bouton [numero]="'C'"></app-bouton>C</td>
+              <td class="number_button" (click)="clearHistorique()"><app-bouton></app-bouton>Reset Histo</td>
             </tr>
           </table>
         </div>
       </div>
+    </div>
+    <div class="col-md-2">
+      <h3>Historique</h3>
+      <div *ngFor="let p of calculAffichage"><app-historique-calcul [calcul]="p"></app-historique-calcul></div>
     </div>
   </div>
 </div>

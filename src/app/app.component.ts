@@ -11,6 +11,7 @@ export class AppComponent {
 
   operator: Array<string> = [];
   number: Array<string> = [];
+  calculAffichage: Array<string> = [];
   calculAffiche = '';
   chiffre = '';
   resultat: number;
@@ -39,7 +40,13 @@ export class AppComponent {
     this.number = [];
   }
 
+  clearHistorique(): void {
+    this.calculAffichage = [];
+  }
+
+
   calcul(): void {
+    let tempString = '';
     let firstRound = true;
     if (this.number.length === 0) {
       this.calculAffiche = '0';
@@ -48,6 +55,7 @@ export class AppComponent {
       this.number.push(this.chiffre);
       this.chiffre = '';
     }
+    tempString = this.calculAffiche;
 
     for (let i = 0; i <= this.number.length; i++ ) {
       for (const j in this.operator) {
@@ -78,6 +86,8 @@ export class AppComponent {
         i = i + 2;
       }
     }
+    tempString = tempString + '=' + this.resultat;
     this.calculAffiche = '' + this.resultat;
+    this.calculAffichage.push(tempString);
   }
 }
